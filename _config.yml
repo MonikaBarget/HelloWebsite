@@ -1,0 +1,17 @@
+theme: jekyll-theme-minimal
+
+baseurl: "/HelloWebsite"
+
+defaults:
+  - scope:
+      path: "docs_en"
+    values:
+      lang: "en"
+  - scope:
+      path: "docs_de"
+    values:
+      lang: "de"
+  - scope:
+      path: "docs_nl"
+    values:
+      lang: "nl"

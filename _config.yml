@@ -1,17 +1,32 @@
-theme: jekyll-theme-minimal
-
+# Site settings
+title: Hello Website
+description: A simple static website demo.
+url: "https://myname.github.io"
 baseurl: "/HelloWebsite"
 
+# Theme
+theme: jekyll-theme-minimal
+
+# Multilingual defaults
 defaults:
   - scope:
       path: "docs_en"
     values:
       lang: "en"
+      layout: default
   - scope:
       path: "docs_de"
     values:
       lang: "de"
+      layout: default
   - scope:
       path: "docs_nl"
     values:
       lang: "nl"
+      layout: default
+
+# Exclude from processing
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore

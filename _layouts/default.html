@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: 'en-US' }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title | default: "Hello Website" }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    {% seo %}
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>{{ page.title | default: "Hello Website" }}</h1>
-      </header>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <main>
-        {{ content }}
-      </main>
+  <title>{{ page.title | default: site.title }}</title>
 
-      <footer>
-        <p>A simple static website demo.</p>
-      </footer>
-    </div>
-  </body>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  {% seo %}
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>{{ page.title | default: site.title }}</h1>
+
+      <nav>
+        {% case page.lang %}
+          {% when "de" %}
+            {% include nav_de.html %}
+          {% when "nl" %}
+            {% include nav_nl.html %}
+          {% else %}
+            {% include nav_en.html %}
+        {% endcase %}
+      </nav>
+    </header>
+
+    <main>
+      {{ content }}
+    </main>
+
+    <footer>
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}</p>
+    </footer>
+
+  </div>
+</body>
 </html>

@@ -1,62 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ page.lang | default: 'en-US' }}">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-{% seo %}
-    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-    {% include head-custom.html %}
+    <title>{{ page.title | default: "Hello Website" }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% seo %}
   </head>
   <body>
-  <div class="container">
-    <aside class="sidebar">
-      <h1>GeoHumanities Tutorials</h1>
-      <p>Beginners' tutorials and samples on geocoding & mapping (historical) spatial data</p>
-      <p><a href="https://github.com/MonikaBarget/GeoHumTutorials">View the Project on GitHub</a></p>
-      <img src="/GeoHumTutorials/logos/Logo_globe.png" alt="logo globe" width="75%" align="center">
-    </aside>
+    <div class="container">
+      <header>
+        <h1>{{ page.title | default: "Hello Website" }}</h1>
+      </header>
 
-    <main class="content">
-      <nav class="topnav">
-        <a href="{{ '/index' | relative_url }}">Home</a>
-        <span>Language:
-          <a href="{{ '/docs_en/' | relative_url }}">EN</a> |
-          <a href="{{ '/docs_de/' | relative_url }}">DE</a> |
-          <a href="{{ '/docs_nl/' | relative_url }}">NL</a>
-        </span>
-{% if page.lang == "de" %}
-  {% include nav_de.html %}
-{% elsif page.lang == "nl" %}
-  {% include nav_nl.html %}
-{% else %}
-  {% include nav_en.html %}
-{% endif %}
-      </nav>
+      <main>
+        {{ content }}
+      </main>
 
-<style>
-  nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  nav li {
-    margin-right: 15px;
-  }
-  nav summary {
-    cursor: pointer;
-  }
-  nav details ul {
-    padding-left: 20px;
-  }
-</style>
-
-      {{ content }}
-    </main>
-  </div>
-</body>
-
+      <footer>
+        <p>A simple static website demo.</p>
+      </footer>
+    </div>
+  </body>
 </html>
